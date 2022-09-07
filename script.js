@@ -17,6 +17,7 @@ function main() {
     checkbox.type = 'checkbox'
     checkbox.className = 'checkbox';
     listElement.className = 'task-list-item';
+    taskContent.className = 'task-content';
     deleteElement.textContent = 'Delete';
     editButton.textContent = 'Edit';
 
@@ -40,17 +41,20 @@ function main() {
     }
 
     textArea.value = '';
+    taskContent.disabled = true;
 
     editButton.addEventListener('click', function(event) {
         event.preventDefault();
 
         if (editButton.textContent.toLocaleLowerCase() === 'edit') {
+            taskContent.disabled = false;
             taskContent.removeAttribute('readonly');
             taskContent.focus();
             editButton.textContent = 'Save';
         }
         else {
             taskContent.setAttribute('readonly', 'readonly');
+            taskContent.disabled = true;
             editButton.textContent = 'Edit';
         }
     });
@@ -81,8 +85,20 @@ function main() {
 textArea.addEventListener('keydown', function(event) {
     if (event.keyCode === 13) {
         event.preventDefault();
-        main();
+        if (list.length < 9) {
+            main();
+        }
+        else {
+            console.log('task list is full!');
+        }
     }
 });
 
-addButton.addEventListener('click', main);
+addButton.addEventListener('click', function() {
+    if (list.length < 9) {
+        main();
+    }
+    else {
+        console.log('task list is full!');
+    }
+});
