@@ -83,6 +83,7 @@ h1 {
     border-radius: 5px;
     border: none;
     color: white;
+    z-index: 2;
 }
 
 .edit-button {
@@ -97,8 +98,13 @@ h1 {
     width: 12em;
     padding: 5px;
     border: none;
-    background-color: lightblue;
+    background-color: rgb(156, 200, 214);
     font-size: .85rem;
+}
+
+.task-list-item {
+    height: 3em;
+    background-color: rgb(156, 200, 214);
 }
 
 .checkbox {
