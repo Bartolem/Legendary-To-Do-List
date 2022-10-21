@@ -18,6 +18,8 @@ function main() {
     checkbox.className = 'checkbox';
     listElement.className = 'task-list-item';
     taskContent.className = 'task-content';
+    deleteElement.className = 'delete-button';
+    editButton.className = 'edit-button';
     deleteElement.textContent = 'Delete';
     editButton.textContent = 'Edit';
 
@@ -85,7 +87,7 @@ function main() {
 textArea.addEventListener('keydown', function(event) {
     if (event.keyCode === 13) {
         event.preventDefault();
-        if (list.length < 9) {
+        if (list.length < 7) {
             main();
         }
         else {
@@ -95,7 +97,7 @@ textArea.addEventListener('keydown', function(event) {
 });
 
 addButton.addEventListener('click', function() {
-    if (list.length < 9) {
+    if (list.length < 7) {
         main();
     }
     else {
